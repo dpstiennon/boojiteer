@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-offset-3">
+      <%= form_for(@user) do |f| %>
+
+          <legend>Sign up, and we'll get you started budgeting</legend>
+          <fieldset>
+
+            <div class="form-group ">
+              <%= f.label :firstname, class: 'form-label' %>
+              <%= f.text_field :firstname, class: 'form-control' %>
+
+              <%= f.label :lastname, class: 'form-label' %>
+              <%= f.text_field :lastname, class: 'form-control' %>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :email, class: 'form-label' %>
+              <%= f.email_field :email, class: 'form-control' %>
+            </div>
+
+
+            <div class="form-group">
+              <%= f.label :password, class: 'form-label' %>
+              <%= f.password_field :password, class: 'form-control' %>
+
+              <%= f.label :password, text='Password Confirm', class: 'form-label' %>
+              <%= f.password_field :password, class: 'form-control' %>
+
+            </div>
+
+            <%= f.submit class: 'btn btn-primary' %>
+          </fieldset>
+
+      <% end %>
+    </div>
+  </div>
+</div>
