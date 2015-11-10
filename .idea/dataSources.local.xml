@@ -4,5 +4,8 @@
     <data-source name="Rails Boojiteer: development" uuid="a355073e-bb4a-4e7b-898f-63ce9e022cf4">
       <auth-required>false</auth-required>
     </data-source>
+    <data-source name="Rails Boojiteer: test" uuid="caa17080-51ee-495f-b70c-a9383183fdc2">
+      <auth-required>false</auth-required>
+    </data-source>
   </component>
 </project>

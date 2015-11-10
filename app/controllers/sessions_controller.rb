@@ -1,4 +1,4 @@
-class SessionController < ApplicationController
+class SessionsController < ApplicationController
   def new
     @user = User.new()
   end
@@ -7,9 +7,10 @@ class SessionController < ApplicationController
     logged_in_user = User.find_by_email(user_params[:email])
     unless logged_in_user.nil? || loggin_in_user.password != user_params[:password]
 
-    end
 
-    flash[]
+    else
+      flash.alert = "We're so sorry!  It appears you entered the wrong password for your username"
+    end
 
   end
 

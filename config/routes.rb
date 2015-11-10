@@ -1,13 +1,9 @@
 Rails.application.routes.draw do
-  get 'session/new'
+  get 'login' => 'sessions#new'
 
-  get 'session/create'
+  post 'login' => 'sessions#create'
 
-  get 'session/destroy'
-
-  get 'session/create'
-
-  get 'session/destroy'
+  delete 'logout' => 'sessions#destroy'
 
   get 'home/index'
 
