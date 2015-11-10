@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  get 'session/new'
+
+  get 'session/create'
+
+  get 'session/destroy'
+
+  get 'session/create'
+
+  get 'session/destroy'
+
   get 'home/index'
 
   get 'about' => 'home#about'
