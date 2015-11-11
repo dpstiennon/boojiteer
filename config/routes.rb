@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'budgets/show'
+
   get 'login' => 'sessions#new'
 
   post 'login' => 'sessions#create'
@@ -13,7 +15,11 @@ Rails.application.routes.draw do
 
   root 'home#index'
 
-  resource :users
+  resources :users do
+    resources :budgets
+  end
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
