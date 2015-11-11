@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="4224190510">
+  <component name="DataSourceManagerImpl" format="xml" hash="487881382">
     <data-source source="LOCAL" name="Rails Boojiteer: development" uuid="a355073e-bb4a-4e7b-898f-63ce9e022cf4">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>

@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  get 'incomes/index'
+
+  get 'incomes/create'
+
+  get 'incomes/edit'
+
+  get 'incomes/update'
+
+  get 'incomes/destroy'
+
   get 'budgets/show'
 
   get 'login' => 'sessions#new'
@@ -16,8 +26,11 @@ Rails.application.routes.draw do
   root 'home#index'
 
   resources :users do
-    resources :budgets
+    resources :budgets do
+      resources :incomes
+    end
   end
+
 
 
 
