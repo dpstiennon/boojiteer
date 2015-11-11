@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
 
 
     else
-      flash.alert = "We're so sorry!  It appears you entered the wrong password for your username"
+      flash[:danger] = logged_in_user.nil? ? "That email address is not registered yet" : "It seems like you typed the wrong password"
       redirect_to login_path
     end
 

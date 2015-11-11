@@ -1,6 +1,32 @@
-<h1>Budgets#show</h1>
-<p>Find me in app/views/budgets/show.html.erb</p>
 <p>
-  My user is <%= @user.firstname %>
+  Welcome, <%= @user.firstname %>
 </p>
-<p>This budget id is <%= @budget.id %></p>
+<div class="container" ng-app="boojit">
+  <div ng-controller="TotalController as total">
+    <div class="col-md-6">
+      <div class="well">
+        Recurring Expenses go here
+        <input type="text" ng-model="total.recurringExpenses"/>
+      </div>
+      <div class="well">
+        Income information goes here
+        <input type="text" ng-model="total.income">
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="well">
+        Budgets go here
+        <input type="text" ng-model="total.budgetedExpenses">
+      </div>
+      <div class="well">
+        Any Irregular Expenses go here
+        <input type="text" ng-model="total.irregulars">
+      </div>
+      <span>
+         Budget total is {{total.income - total.recurringExpenses - total.budgetedExpenses - total.irregulars}}
+      </span>
+    </div>
+
+
+  </div>
+</div>
