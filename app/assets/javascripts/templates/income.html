@@ -1,1 +1,29 @@
-<div class="well"> Income information goes here <input type="text" ng-model="total.income">This is crazy </div>
+<div class="well">
+    <h4>Sources of Income</h4>
+
+    <div style="float:right;">
+        <button ng-click="incomeCtrl.addMoney()" class="btn btn-xs btn-success"><i class="glyphicon glyphicon-plus"></i>
+        </button>
+    </div>
+    <div ng-repeat="income in incomeCtrl.moneys">
+        <div action="" class="form-inline">
+            <button class="btn btn-xs btn-danger" ng-click="incomeCtrl.deleteIncome(income)" ng-disabled="incomeCtrl.moneys.length <= 1">
+                <i class="glyphicon glyphicon-remove"></i>
+            </button>
+            <input type="text" ng-model="income.name" class="form-control"  placeholder="Source of Income"/>
+            <input type="number" ng-model="income.amount" class="form-control" style="width: 8em;" />
+            <select name="frequency" id="frequency" ng-model="income.frequency" class="form-control" >
+                <option value="0">One-Time</option>
+                <option value="1">Per Week</option>
+                <option value="2">Bi-Weekly</option>
+                <option value="3">Per Month</option>
+                <option value="4">Per Year</option>
+            </select>
+        </div>
+    </div>
+
+
+    <div style="float:right;">
+        <span>Total Income for this month: {{ incomeCtrl.total() | currency}}</span>
+    </div>
+</div>
