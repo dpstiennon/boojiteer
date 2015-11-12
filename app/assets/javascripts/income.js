@@ -19,7 +19,7 @@ angular.module('boojit')
     .controller('IncomeController', IncomeController );
 
 function IncomeController($scope) {
-    this.stuff = 'This is so cool!'
+    this.scope = $scope;
     this.moneys = [new income('', 0, 3)];
 }
 
@@ -31,6 +31,7 @@ IncomeController.prototype.addMoney = function() {
 
 IncomeController.prototype.total = function(){
     var sum = _.reduce(this.moneys, function(memo, money){return memo + money.monthlyAmount()}, 0);
+    this.scope.incomeTotal = sum;
     return sum;
 };
 
