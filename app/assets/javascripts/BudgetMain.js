@@ -6,10 +6,10 @@ var boojit = angular.module('boojit', [])
     .controller('TotalController', TotalController) ;
 
 function TotalController(){
-    this.income = 20000
-    this.recurringExpenses = 5000
-    this.budgetedExpenses = 9000
-    this.irregulars = 1000
+    this.income = 5000;
+    this.recurringExpenses = 2000;
+    this.budgetedExpenses = 2000;
+    this.irregulars = 1000;
 
 };
 

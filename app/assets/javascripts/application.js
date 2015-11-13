@@ -15,5 +15,6 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require angular
+//= require angularjs/rails/resource
 //= require underscore
 //= require_tree .
