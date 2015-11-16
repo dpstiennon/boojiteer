@@ -1,22 +1,23 @@
 class IncomesController < ApplicationController
+  skip_before_action :verify_authenticity_token
+
   def index
     @incomes = get_budget.incomes
     render json: @incomes
   end
 
   def create
-    get_budget.incomes.create(income_params)
-  end
-
-  def edit
-    @budget.incomes.update(income_params)
+    @income = get_budget.incomes.create(income_params)
+    render json: @income
   end
 
   def update
+    @income = Income.update(params[:id], income_params)
+    render json: @income
   end
 
   def destroy
-    @budget.incomes.find(income_params[:id]).destroy
+    get_budget.incomes.find(params[:id]).destroy
   end
 
   private

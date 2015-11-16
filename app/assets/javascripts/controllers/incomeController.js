@@ -8,8 +8,16 @@ angular.module('boojit')
 function IncomeController($scope, incomeService) {
     var self = this;
     this.scope = $scope;
-    this.moneys = [new income('', 0, 3)];
+    this.moneys = [];
     this.incomeService = incomeService;
+    this.dropDownOptions = [
+        {id: 0, val: "One-Time"},
+        {id: 1, val: "Per Week"},
+        {id: 2, val: "Bi-Weekly"},
+        {id: 3, val: "Per Month"},
+        {id: 4, val: "Per Year"},
+
+    ];
     incomeService.all().success(function(data){
         self.moneys = [];
         _.each(data, function(serverIncome){
@@ -19,10 +27,19 @@ function IncomeController($scope, incomeService) {
     })
 }
 
+IncomeController.prototype.update = function(income){
+    var self = this;
+   // console.log('changed' + income.toString());
+    self.incomeService.update(income);
+};
+
 IncomeController.prototype.addMoney = function () {
+    var self = this;
     var newIncome = new income();
-    this.incomeService.create()
-    this.moneys.push(newIncome);
+    self.incomeService.create(newIncome).success(function(data){
+        newIncome.id = data.id;
+        self.moneys.push(newIncome);
+    });
 
 };
 
@@ -37,7 +54,7 @@ IncomeController.prototype.total = function () {
 IncomeController.prototype.deleteIncome = function (toRemove) {
     var self = this
     if (self.moneys.length > 1) {
-        self.
+        self.incomeService.destroy(toRemove);
         self.moneys.splice(self.moneys.indexOf(toRemove), 1);
     }
 }

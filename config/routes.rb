@@ -27,7 +27,7 @@ Rails.application.routes.draw do
 
   resources :users do
     resources :budgets do
-      resources :incomes
+      resources :incomes, only: [:create, :destroy, :index, :new, :update]
     end
   end
 
